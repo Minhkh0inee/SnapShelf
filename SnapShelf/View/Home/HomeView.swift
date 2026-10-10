@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack(spacing: 0){
+        VStack(spacing: 0) {
             FixedHeaderView()
 
             Spacer()
@@ -34,5 +34,5 @@ struct HomeView: View {
         }
         .toolbar(.hidden, for: .navigationBar)
     }
-    
+
 }

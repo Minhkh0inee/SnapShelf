@@ -10,7 +10,7 @@ struct SearchBar: View {
     @Binding var text: String
     var placeholder: String = "Tìm kiếm..."
     var isFake: Bool = false
-    
+
     var body: some View {
         if isFake {
             NavigationLink {
@@ -23,12 +23,12 @@ struct SearchBar: View {
             searchBarUI
         }
     }
-    
+
     private var searchBarUI: some View {
         HStack(spacing: 8) {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.secondary)
-            
+
             if isFake {
                 Text(placeholder)
                     .font(.subheadline)

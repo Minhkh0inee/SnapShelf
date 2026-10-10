@@ -17,14 +17,14 @@ struct MainTabView: View {
             .tabItem {
                 Label("Trang chủ", systemImage: "house")
             }
-            
+
             NavigationStack {
                 SearchView()
             }
             .tabItem {
                 Label("Tìm Kiếm", systemImage: "magnifyingglass")
             }
-            
+
             NavigationStack {
                 SettingView()
             }

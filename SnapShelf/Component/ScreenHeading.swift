@@ -10,12 +10,12 @@ import SwiftUI
 struct ScreenHeading: View {
     let title: String
     let subTitle: String
-    
+
     var body: some View {
-        VStack (alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 4) {
             Text(title)
                 .font(.title.bold())
-            
+
             Text(subTitle)
                 .font(.subheadline)
                 .foregroundColor(.secondary)

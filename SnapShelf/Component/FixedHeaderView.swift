@@ -2,16 +2,15 @@ import SwiftUI
 
 struct FixedHeaderView: View {
     @State private var isDarkMode = false
-    
+
     var body: some View {
-        
-        
+
         HStack {
             Text("SnapShelf")
                 .font(.title2.bold())
-            
+
             Spacer()
-            
+
             Button {
                 isDarkMode.toggle()
             } label: {
@@ -22,9 +21,9 @@ struct FixedHeaderView: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 12)
-        
+
         Divider() // Đường kẻ ngăn cách
-        
+
     }
 //        .preferredColorScheme(isDarkMode ? .dark : .light)
 }
