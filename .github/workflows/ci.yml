@@ -6,15 +6,19 @@ on:
   pull_request:
     branches: [ "main", "master" ]
 
-
 jobs:
   lint-and-build:
     name: Lint & Build Test
-    runs-on: [self-hosted, macOS]
+    runs-on: macos-26
 
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '26.2.0'
 
       - name: Show Xcode Info
         run: |
