@@ -1,0 +1,22 @@
+#!/bin/bash
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+if ! command -v swiftlint >/dev/null 2>&1; then
+  echo "warning: SwiftLint chưa được cài. Chạy: brew install swiftlint"
+  exit 0
+fi
+
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.swift$')
+
+if [ -z "$FILES" ]; then
+  exit 0
+fi
+
+echo "Running SwiftLint on staged files..."
+echo "$FILES" | tr '\n' '\0' | xargs -0 swiftlint lint --quiet --force-exclude
+
+if [ $? -ne 0 ]; then
+  echo "SwiftLint failed. Sửa lỗi rồi commit lại (hoặc chạy: swiftlint --fix)."
+  exit 1
+fi

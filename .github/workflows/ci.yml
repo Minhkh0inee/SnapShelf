@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Select Xcode Version
         uses: maxim-lobanov/setup-xcode@v1
@@ -24,6 +24,14 @@ jobs:
         run: |
           xcode-select -p
           xcodebuild -version
+
+      - name: Install SwiftLint
+        run: |
+          which swiftlint || brew install swiftlint
+          swiftlint version
+
+      - name: Run SwiftLint
+        run: swiftlint lint --reporter github-actions-logging
 
       - name: Build Xcode Project
         run: |
