@@ -9,7 +9,7 @@ on:
 jobs:
   lint-and-build:
     name: Lint & Build Test
-    runs-on: macos-15  # Đổi sang macos-15 để có sẵn Xcode 16+
+    runs-on: macos-26   # image cần có Xcode 27
 
     steps:
       - name: Checkout Source Code
@@ -18,13 +18,18 @@ jobs:
       - name: Select Xcode Version
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '16.0' # Hoặc 'latest-stable'
+          xcode-version: '27.0'   # nếu là beta, thử '27.0-beta'
+
+      - name: Show Xcode Info
+        run: |
+          xcode-select -p
+          xcodebuild -version
 
       - name: Build Xcode Project
         run: |
           xcodebuild build \
             -project SnapShelf.xcodeproj \
             -scheme SnapShelf \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+            -destination 'generic/platform=iOS Simulator' \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO
