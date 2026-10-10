@@ -15,6 +15,9 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
+      - name: Select Xcode 16
+        run: sudo xcode-select -s /Applications/Xcode_16.0.app/Contents/Developer
+
       - name: Run SwiftLint (Kiểm tra chất lượng & format code)
         run: |
           if which swiftlint >/dev/null; then
