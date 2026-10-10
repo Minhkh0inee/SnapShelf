@@ -30,6 +30,6 @@ jobs:
           xcodebuild build \
             -project SnapShelf.xcodeproj \
             -scheme SnapShelf \
-            -destination 'generic/platform=iOS Simulator' \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO
