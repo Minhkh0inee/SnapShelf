@@ -19,18 +19,7 @@ struct HomeView: View {
             )
             SearchBar(text: .constant(""), isFake: true)
                             .padding(.horizontal)
-            ScrollView {
-                VStack(spacing: 12) {
-                    ForEach(1...30, id: \.self) { index in
-                        Text("Dòng nội dung \(index)")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(8)
-                    }
-                }
-                .padding()
-            }
+            ListImage()
         }
         .toolbar(.hidden, for: .navigationBar)
     }
