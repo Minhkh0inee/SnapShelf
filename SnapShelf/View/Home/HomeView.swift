@@ -14,14 +14,22 @@ struct HomeView: View {
             FixedHeaderView()
 
             Spacer()
-            ScreenHeading(
-                title: "Library", subTitle: "A little order for everything you save."
-            )
-            SearchBar(text: .constant(""), isFake: true)
-                            .padding(.horizontal)
-            ListImage()
+            ScrollView {
+                ScreenHeading(
+                    title: "Library", subTitle: "A little order for everything you save."
+                )
+                SearchBar(text: .constant(""), isFake: true)
+                                .padding(.horizontal)
+                ListImage(listHeading: "Today", size: .large)
+                ListImage(listHeading: "Today", size: .small)
+            }
+
         }
         .toolbar(.hidden, for: .navigationBar)
     }
 
+}
+
+#Preview {
+    HomeView()
 }
