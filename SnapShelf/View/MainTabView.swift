@@ -19,6 +19,13 @@ struct MainTabView: View {
             }
 
             NavigationStack {
+                CategoryView()
+            }
+            .tabItem {
+                Label("Thư mục", systemImage: "folder")
+            }
+
+            NavigationStack {
                 SearchView()
             }
             .tabItem {
